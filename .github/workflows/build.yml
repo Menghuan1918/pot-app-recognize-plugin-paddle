@@ -24,19 +24,19 @@ jobs:
       - uses: vimtor/action-zip@v1
         with:
           files: info.json ${{ env.ICON  }} main.js PaddleOCR-json_v1.4.0
-          dest: x86_64-pc-windows.potext
+          dest: plugin.com.pot-app.paddle.windows.potext
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: x86_64-pc-windows
-          path: x86_64-pc-windows.potext
+          path: plugin.com.pot-app.paddle.windows.potext
           if-no-files-found: error
       - name: Upload Release
         if: startsWith(github.ref, 'refs/tags')
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: x86_64-pc-windows.potext
+          files: plugin.com.pot-app.paddle.windows.potext
 
   build-linux-x64:
     runs-on: ubuntu-latest
@@ -59,16 +59,16 @@ jobs:
       - uses: vimtor/action-zip@v1
         with:
           files: info.json ${{ env.ICON  }} main.js PaddleOCR-json_v1.4.1_debian_x64_glibc2.31
-          dest: x64-unknown-linux-gnu.potext
+          dest: plugin.com.pot-app.paddle.x64linux.potext
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: x64-unknown-linux-gnu
-          path: "x64-unknown-linux-gnu.potext"
+          path: "plugin.com.pot-app.paddle.x64linux.potext"
           if-no-files-found: error
       - name: Upload Release
         if: startsWith(github.ref, 'refs/tags')
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: "x64-unknown-linux-gnu.potext"
+          files: "plugin.com.pot-app.paddle.x64linux.potext"

@@ -6,6 +6,7 @@ async function recognize(_base64, lang, options) {
 
     if (osType !== "Windows_NT") {
         let res = await run('chmod', ['+x', `${pluginDir}/${exeName}`]);
+        let res2 = await run('chmod', ['+x', `${pluginDir}/bin/PaddleOCR-json`]);
     }
 
     let result = await run(`${pluginDir}/${exeName}`, [
