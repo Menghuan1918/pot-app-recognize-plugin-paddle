@@ -1,7 +1,7 @@
 # Pot-App Paddle OCR 插件 (基于 [PaddleOCR-json](https://github.com/hiroi-sora/PaddleOCR-json))
 
 > [!WARNING]
-> 该插件仅支持 Windows x64
+> 该插件仅支持 Windows x64 以及 Linux x64(glibc>=2.31)
 
 ## 使用方法
 
