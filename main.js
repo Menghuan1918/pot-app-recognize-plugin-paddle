@@ -1,8 +1,14 @@
 async function recognize(_base64, lang, options) {
     const { utils } = options;
-    const { run, cacheDir, pluginDir } = utils;
+    const { run, cacheDir, osType, pluginDir } = utils;
 
-    let result = await run(`${pluginDir}/PaddleOCR-json.exe`, [
+    let exeName = osType === "Windows_NT" ? "PaddleOCR-json.exe" : "run.sh";
+
+    if (osType !== "Windows_NT") {
+        let res = await run('chmod', ['+x', `${pluginDir}/${exeName}`]);
+    }
+
+    let result = await run(`${pluginDir}/${exeName}`, [
         "use_angle_cls=true",
         "cls=true",
         `--image_path=${cacheDir}/pot_screenshot_cut.png`,
